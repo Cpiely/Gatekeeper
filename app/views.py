@@ -1,5 +1,9 @@
 from app import app
+from twilio.twiml.voice_response import VoiceResponse
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def hello():
-	return "Hello world"
+	resp = VoiceResponse()
+	resp.say("You will die in seven days!",voice='woman')
+	return str(resp)
+
