@@ -5,7 +5,7 @@ from twilio.twiml.voice_response import VoiceResponse, Gather
 def hello():
 	resp = VoiceResponse()
 	g = Gather(numDigits=4, action="/handle-key", method="POST")
-	g.say(voice='woman', "Please enter your assinged pin code.")
+	g.say("Please enter your assinged pin code.", voice='woman')
 	resp.append(g)
 	return str(resp)
 
@@ -17,10 +17,10 @@ def handle_key():
 	digits_pressed = request.values.get('Digits', None)
 	# Admin number
 	if digits_pressed == '2158':
-		resp.say(voice='woman', 'Hello Cameron, have a wonderful day!')
+		resp.say('Hello Cameron, have a wonderful day!', voice='woman')
 	elif digits_pressed == '8008':
-		resp.say(voice='woman', 'Cameron will be expecting you shortly.')
+		resp.say('Cameron will be expecting you shortly.', voice='woman')
 	else:
-		resp.say(voice='woman', 'Unauthorized visitor.')
+		resp.say('Unauthorized visitor.', voice='woman')
 
 	return str(resp)
