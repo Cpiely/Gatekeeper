@@ -1,4 +1,4 @@
 venv/
 *.pyc
-env.sh
+.env.sh
 gatekeeper.pem
